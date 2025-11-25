@@ -1,82 +1,115 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Analyse Élit CSP — GROOM</title>
+    <meta charset="UTF-8">
+    <title>ANALYSE ÉLIT CSP GROOM™</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
 
-<style>
-body {
-    margin: 0;
-    background: #000d1f;
-    font-family: Arial, sans-serif;
-    color: #cce7ff;
-    text-align: center;
-    padding: 35px;
-}
-
-h1 {
-    font-size: 30px;
-    color: #4aa8ff;
-    text-shadow: 0 0 12px #0091ff;
-}
-
-.box {
-    background: rgba(0,40,80,0.4);
-    padding: 22px;
-    border-radius: 12px;
-    margin-top: 30px;
-    border: 1px solid #006cbf;
-    box-shadow: 0 0 25px rgba(0,140,255,0.25);
-}
-
-.loading {
-    width: 25px;
-    height: 25px;
-    border: 4px solid #4aa8ff;
-    border-top: 4px solid transparent;
-    border-radius: 50%;
-    margin: 15px auto;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-.btn {
-    margin-top: 35px;
-    padding: 16px 35px;
-    font-size: 18px;
-    font-weight: bold;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    background: #009dff;
-    color: #fff;
-    box-shadow: 0 0 18px #009dff;
-}
-</style>
-
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
 
-<h1>Analyse GROOM™</h1>
-
-<div class="box">
-    <div class="loading"></div>
-    <p id="resultat">Analyse du business en cours...</p>
+<!-- POPUP CHARGEMENT -->
+<div id="loadingPopup">
+    <div class="loader"></div>
+    <p>Analyse en cours…</p>
 </div>
 
-<script>
-setTimeout(() => {
-    document.getElementById("resultat").innerHTML = "Score global : <b>93%</b><br><br>Très fort potentiel dans votre zone.";
-}, 2500);
-</script>
+<!-- ÉCRAN D’ACCUEIL -->
+<div id="welcome-screen">
+    <h1 class="title">ANALYSE ÉLIT<br><span>CSP GROOM</span></h1>
+    <p class="subtitle">Système d’Analyse Stratégique Automatisé</p>
+    <button class="start-btn" onclick="startGroum()">ENTRER DANS LE SYSTÈME</button>
+</div>
 
-<button class="btn" onclick="window.location.href='https://wa.me/message/RGYKG6GSQFCDG1'">
-Lancer mon Business →
-</button>
+
+<!-- DASHBOARD PRINCIPAL -->
+<div id="dashboard" style="display:none;">
+
+    <h2 class="section-title">Analyse Automatique GROOM™</h2>
+
+    <div class="input-grid">
+
+        <div class="input-card">
+            <label>Idée business</label>
+            <input id="ideaInput" type="text" placeholder="Ex : IA TikTok Produits Digitaux">
+        </div>
+
+        <div class="input-card">
+            <label>Budget publicitaire ($)</label>
+            <input id="budgetInput" type="number" placeholder="Ex : 40">
+        </div>
+
+        <div class="input-card">
+            <label>Pays</label>
+            <select id="countryInput">
+                <option value="">Choisir…</option>
+                <option>France</option>
+                <option>Belgique</option>
+                <option>Luxembourg</option>
+                <option>Allemagne</option>
+                <option>Suisse</option>
+                <option>Italie</option>
+                <option>Espagne</option>
+                <option>Cameroun</option>
+                <option>Côte d’Ivoire</option>
+                <option>Burkina Faso</option>
+                <option>Mali</option>
+                <option>Sénégal</option>
+                <option>États-Unis</option>
+                <option>Royaume-Uni</option>
+                <option>RDC</option>
+            </select>
+        </div>
+
+    </div>
+
+    <button class="analyse-btn" onclick="runGroum()">LANCER L’ANALYSE</button>
+
+
+    <!-- AFFICHAGE DES RÉSULTATS -->
+
+    <div id="results" style="display:none;">
+
+        <div class="cards-row">
+
+            <div class="result-card">
+                <h3>Visiteurs estimés</h3>
+                <p id="visiteurs">—</p>
+            </div>
+
+            <div class="result-card">
+                <h3>Achats estimés</h3>
+                <p id="achats">—</p>
+            </div>
+
+            <div class="result-card">
+                <h3>Taux conversion</h3>
+                <p id="conversion">—</p>
+            </div>
+
+            <div class="result-card">
+                <h3>Score GROUM</h3>
+                <p id="scoreFinal">—</p>
+            </div>
+
+        </div>
+
+        <canvas id="chartGroum"></canvas>
+
+        <div class="verdict-box">
+            <h3>Verdict</h3>
+            <p id="verdict">—</p>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
