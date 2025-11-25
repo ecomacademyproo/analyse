@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analyse Élit CSP — GROOM</title>
+
+<style>
+body {
+    margin: 0;
+    background: #000d1f;
+    font-family: Arial, sans-serif;
+    color: #cce7ff;
+    text-align: center;
+    padding: 35px;
+}
+
+h1 {
+    font-size: 30px;
+    color: #4aa8ff;
+    text-shadow: 0 0 12px #0091ff;
+}
+
+.box {
+    background: rgba(0,40,80,0.4);
+    padding: 22px;
+    border-radius: 12px;
+    margin-top: 30px;
+    border: 1px solid #006cbf;
+    box-shadow: 0 0 25px rgba(0,140,255,0.25);
+}
+
+.loading {
+    width: 25px;
+    height: 25px;
+    border: 4px solid #4aa8ff;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    margin: 15px auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.btn {
+    margin-top: 35px;
+    padding: 16px 35px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: #009dff;
+    color: #fff;
+    box-shadow: 0 0 18px #009dff;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Analyse GROOM™</h1>
+
+<div class="box">
+    <div class="loading"></div>
+    <p id="resultat">Analyse du business en cours...</p>
+</div>
+
+<script>
+setTimeout(() => {
+    document.getElementById("resultat").innerHTML = "Score global : <b>93%</b><br><br>Très fort potentiel dans votre zone.";
+}, 2500);
+</script>
+
+<button class="btn" onclick="window.location.href='https://wa.me/message/RGYKG6GSQFCDG1'">
+Lancer mon Business →
+</button>
+
+</body>
+</html>
